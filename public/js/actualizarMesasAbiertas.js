@@ -1,5 +1,5 @@
 import mostrarMesa from "./mostrarMesa.js";
-import dbMesas from "./leerDb.js";
+import {dbMesas} from "./leerDb.js";
 
 export default async function actualizarModalMesas() {
   event.stopPropagation();
