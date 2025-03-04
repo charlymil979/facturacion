@@ -705,7 +705,7 @@ td button {
 #containerMesasCobradas {
   background-color: var(--fondoNoBlanco);
   margin: 0 auto;
-  /* width: 90%; */
+  width: 85%;
   border-collapse: separate; /* Importante para que border-spacing funcione */
   border-spacing: 5px; /* Espacio de 10 píxeles entre celdas */
 }
