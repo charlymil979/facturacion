@@ -705,7 +705,7 @@ td button {
 #containerMesasCobradas {
   background-color: var(--fondoNoBlanco);
   margin: 0 auto;
-  width: 85%;
+/*   width: 85%; */
   border-collapse: separate; /* Importante para que border-spacing funcione */
   border-spacing: 5px; /* Espacio de 10 píxeles entre celdas */
 }
@@ -718,7 +718,7 @@ td button {
 .cobradaData {
   padding-right: 3px;
   text-align: right;
-  width: 4rem;
+  width: 4.5rem;
   font-size: 1rem;
 }
 
