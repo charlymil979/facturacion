@@ -1,4 +1,4 @@
-import dbMesas from "./leerDb.js";
+import {dbMesas} from "./leerDb.js";
 import mostrarMesa from "./mostrarMesa.js";
 
 export default async function mostrarDistribucion() {
