@@ -7,7 +7,9 @@ export function botonTicket() {
 	$botonTicket.innerHTML = "Hacer<br>Ticket";
 	$botonTicket.addEventListener("click", (e) => {
     if(document.querySelector("#mesaMostrada").innerHTML != "Mesa"){
-		if(!document.querySelector(".art")){return window.alert("No hay articulos que cobrar")}
+		if(!document.querySelector(".art")){
+			return window.alert("No hay articulos que cobrar")
+		}
     	document.querySelector(".mesasAbiertas").style.display= "none"
 		validarCobro()
     	generarTicket()
@@ -16,6 +18,6 @@ export function botonTicket() {
   		return window.alert("No hay mesa seleccionada")
   	}
 	
-	);
+	});
   return $botonTicket;
 }
