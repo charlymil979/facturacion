@@ -19,3 +19,13 @@ export async function dbPrecios() {
     console.log("error: ",error)
   }
 }
+
+export async function dbTicket() {
+  try {
+    const data = await fetch("http://localhost:3000/ticket")
+    const infoTicket = await data.json()
+    return infoTicket
+  } catch (error) {
+    console.log("error: ",error)
+  }
+}
