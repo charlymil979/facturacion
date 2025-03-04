@@ -2,13 +2,11 @@ import botonCerrarModal from "./botonCerrarModal.js";
 import { guardarHistorial } from "./funcionesQueryPost.js";
 import { validarCobro } from "./validarCobro.js";
 import {imprimirMostrarDatos} from "./imprimirTicket.js"
+import {dbTicket} from "./leerDb.js"
 
 export async function modalTicket() {
-  try {
-    const response = await fetch("http://localhost:3000/json/infoTicket.json");
-
-    const data = await response.json();
-    const infoTicket = data.ticket;
+   
+    const infoTicket = await dbTicket()
     const $encabezado = `
   <h3 class="ticketNombre">${infoTicket.nombre}</h3>
 <p class="ticketDescr">${infoTicket.descr}</p>
@@ -52,8 +50,4 @@ export async function modalTicket() {
     $ticketFinal.appendChild($formasPago);
 
     return $ticketFinal;
-    // console.log(datos);
-  } catch (error) {
-    console.log("error: ", error);
-  }
 }
