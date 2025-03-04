@@ -1,12 +1,12 @@
 
 
-import datosDb from "./leerDb.js";
+import dbPrecios from "./leerDb.js";
 import actualizarMesaAbierta from "./actualizarMesa.js";
 import mostrarMesa from "./mostrarMesa.js";
 
 export async function crearInputConLista() {
-  const datos = await datosDb()
-  const listaOriginal = datos.datos
+  const datos = await dbPrecios()
+  const listaOriginal = datos
   // Crear el contenedor principal
   const contenedor = document.createElement("div");
   contenedor.className = "input-con-lista";
