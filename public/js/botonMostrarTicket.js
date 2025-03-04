@@ -11,6 +11,11 @@ export function botonTicket() {
 	 validarCobro()
     generarTicket()
     document.querySelector(".ticket").style.display= "flex"}
-  });
+  	}else{
+  		return window.alert("No hay mesa seleccionada")
+  	}
+	if(!document.querySelector(".art")){return window.alert("No hay articulos que cobrar"}
+	
+	);
   return $botonTicket;
 }
