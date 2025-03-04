@@ -1,11 +1,11 @@
 import mostrarMesa from "./mostrarMesa.js";
-import distribucion from "./leerDb.js";
+import dbMesas from "./leerDb.js";
 
 export default async function actualizarModalMesas() {
   event.stopPropagation();
   const mesasAbiertas = document.querySelector(".mesasAbiertas");
-  const allMesas = await distribucion();
-  const mesas=allMesas.mesas
+  const allMesas = await dbMesas();
+  const mesas=allMesas
 
   const container = document.createElement("div");
   container.id = "container";
