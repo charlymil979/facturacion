@@ -5,7 +5,7 @@ import {imprimirMostrarDatos} from "./imprimirTicket.js"
 
 export async function modalTicket() {
   try {
-    const response = await fetch("../json/infoTicket.json");
+    const response = await fetch("http://localhost:3000/json/infoTicket.json");
 
     const data = await response.json();
     const infoTicket = data.ticket;
