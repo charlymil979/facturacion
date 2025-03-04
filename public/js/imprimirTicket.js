@@ -12,13 +12,13 @@ export function imprimirMostrarDatos() {
   let bold=''
   for (let i = 0; i < lineas.length; i=i+2) {
 	if(i===lineas.length-2){
-		bold='font-weight:bold;'; texto+='<div style="height:2.8mm"></div>'}else{
+		bold='font-weight:bold;'; texto+='<div style="height:2.6mm"></div>'}else{
 			bold=''
 	}
 	texto += `
-	<div style="display:flex;flex-direction:row; justify-content:flex-start;width:90%;flex-wrap:no-wrap">
- 		<div style="text-align:left;width:50%;${bold} font-size:2.8mm">${lineas[i].innerHTML}</div>
- 		<div style="width:35%;text-align:right;${bold} font-size:2.8mm">${lineas[i + 1].innerHTML}</div>
+	<div style="display:flex;flex-direction:row; justify-content:flex-start;width:80%;flex-wrap:no-wrap">
+ 		<div style="text-align:left;width:50%;${bold} font-size:2.6mm">${lineas[i].innerHTML}</div>
+ 		<div style="width:35%;text-align:right;${bold} font-size:2.6mm">${lineas[i + 1].innerHTML}</div>
  	</div>
 	`;
   }
