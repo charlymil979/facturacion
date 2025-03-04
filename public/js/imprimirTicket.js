@@ -4,23 +4,22 @@ export function imprimirMostrarDatos() {
   const descr = document.querySelectorAll(".ticketDescr")
   const lineas = document.querySelectorAll(".impr")
   let texto = `
-  <h3 style="text-align:center; font-size:4mm;width:80%">${nombre}</h3>
-  <p style="text-align:center; font-size:3.5mm;width:80%">${descr[0].innerHTML}</p>
-  <p style="text-align:center; font-size:3.5mm;width:80%">${descr[1].innerHTML}</p>
+  <h3 style="text-align:center; font-size:3.5mm;width:80%">${nombre}</h3>
+  <p style="text-align:center; font-size:3.1mm;width:80%">${descr[0].innerHTML}</p>
+  <p style="text-align:center; font-size:3.1mm;width:80%">${descr[1].innerHTML}</p>
   <br>
   `;
   let bold=''
   for (let i = 0; i < lineas.length; i=i+2) {
 	if(i===lineas.length-2){
-		bold='font-weight:bold;'; texto+='<div style="height:3.2mm"></div>'}else{
+		bold='font-weight:bold;'; texto+='<div style="height:2.8mm"></div>'}else{
 			bold=''
-		}
+	}
 	texto += `
-	<div style="display:flex;flex-direction:row; justify-content:flex-start;width:90%;flex-wrap:no-wrap"><div style="text-align:left;width:55%;${bold} font-size:3.2mm">${
-    lineas[i].innerHTML
-  }</div><div style="width:35%;text-align:right;${bold} font-size:2.5mm">${
-    lineas[i + 1].innerHTML
-  }</div></div>
+	<div style="display:flex;flex-direction:row; justify-content:flex-start;width:90%;flex-wrap:no-wrap">
+ 		<div style="text-align:left;width:50%;${bold} font-size:2.8mm">${lineas[i].innerHTML}</div>
+ 		<div style="width:35%;text-align:right;${bold} font-size:2.8mm">${lineas[i + 1].innerHTML}</div>
+ 	</div>
 	`;
   }
   ventanaImpresion.document.open();
