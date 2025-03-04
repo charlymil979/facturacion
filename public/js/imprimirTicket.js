@@ -16,7 +16,7 @@ export function imprimirMostrarDatos() {
 			bold=''
 	}
 	texto += `
-	<div style="display:flex;flex-direction:row; justify-content:flex-start;width:80%;flex-wrap:no-wrap">
+	<div style="display:flex;flex-direction:row; justify-content:flex-start;width:85%;flex-wrap:no-wrap">
  		<div style="text-align:left;width:50%;${bold} font-size:2.6mm">${lineas[i].innerHTML}</div>
  		<div style="width:35%;text-align:right;${bold} font-size:2.6mm">${lineas[i + 1].innerHTML}</div>
  	</div>
