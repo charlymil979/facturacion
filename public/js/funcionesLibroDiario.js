@@ -59,47 +59,45 @@ export async function cargarTotalesDiario() {
       document.querySelector("#diarioCred").value = resultado.credito || 0;
       document.querySelector("#diarioTotal").value = resultado.monto || 0;
       manejoResumenDiario();
-    }, 50);
+    }, 5);
   }
 }
 
 export async function revisarMesasCerradas() {
-  const $tbody = document.createElement("tbody");
+    const $tbody = document.createElement("tbody");
+    const fecha = localStorage.getItem("cajaInicial").Fecha
+	if(fecha != ""){
+    const mesas = await totalDiario();
 
-  const mesas = await totalDiario();
+    mesas.forEach((mesa, n) => {
+        const $actualizar = document.createElement("button");
+        $actualizar.textContent = `Modif. orden ${mesa.orden}`;
+        $actualizar.id = `b${mesa.orden}`;
+        const td = document.createElement("td");
+        $actualizar.className = "botonMesaCobrada";
+        td.appendChild($actualizar);
+    	const $fecha = new Date(mesa.fechaCobro);
+    	const minutos =
+    	$fecha.getMinutes() < 10 ? `0${$fecha.getMinutes()}` : $fecha.getMinutes();
 
-  mesas.forEach((mesa, n) => {
-    const $actualizar = document.createElement("button");
-    $actualizar.textContent = `Modif. orden ${mesa.orden}`;
-    $actualizar.id = `b${mesa.orden}`;
-    const td = document.createElement("td");
-    $actualizar.className = "botonMesaCobrada";
-    td.appendChild($actualizar);
-    const $fecha = new Date(mesa.fechaCobro);
-	 const minutos =
-     $fecha.getMinutes() < 10 ? `0${$fecha.getMinutes()}` : $fecha.getMinutes();
-
-    const $tr = document.createElement("tr");
-    $tr.innerHTML = `
-	<td class="cobradaData">${$fecha.getHours()}:${minutos}</td>
-	<td class="cobradaData">${mesa.mesa.replace("-", " ")}</td>
-	<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.efectivo}</td>
-	<td contenteditable class="orden${mesa.orden} cobradaData">${
-      mesa.transferencia
-    }</td>
-	<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.debito}</td>
-	<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.credito}</td>
-	<td contenteditable class="orden${mesa.orden} cobradaData prop">${
-      mesa.propinaTransf
-    }</td>
-	<td style="font-weight:bold" class="total${mesa.orden} cobradaData">${
-      mesa.monto
-    }</td>
-	<td class="cobradaData">${mesa.orden}</td>
-`;
-    $tr.insertAdjacentElement("beforeend", td);
-    $tbody.appendChild($tr);
-  });
+    	const $tr = document.createElement("tr");
+    	$tr.innerHTML = `
+			<td class="cobradaData">${$fecha.getHours()}:${minutos}</td>
+			<td class="cobradaData">${mesa.mesa.replace("-", " ")}</td>
+			<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.efectivo}</td>
+			<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.transferencia}</td>
+			<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.debito}</td>
+			<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.credito}</td>
+			<td contenteditable class="orden${mesa.orden} cobradaData prop">${mesa.propinaTransf}</td>
+			<td style="font-weight:bold" class="total${mesa.orden} cobradaData">${mesa.monto}</td>
+			<td class="cobradaData">${mesa.orden}</td>
+			`;
+    	$tr.insertAdjacentElement("beforeend", td);
+    	$tbody.appendChild($tr);
+	});
 
   return $tbody;
+	}else{
+	return window.alert("Seleccione hora de apertura en libro diario")
+	}
 }
