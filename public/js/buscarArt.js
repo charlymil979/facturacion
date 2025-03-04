@@ -1,6 +1,6 @@
 
 
-import dbPrecios from "./leerDb.js";
+import {dbPrecios} from "./leerDb.js";
 import actualizarMesaAbierta from "./actualizarMesa.js";
 import mostrarMesa from "./mostrarMesa.js";
 
