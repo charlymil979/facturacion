@@ -1,12 +1,14 @@
 import botonCerrarModal from "./botonCerrarModal.js";
 import leerMesaAbierta from "./leerMesaAbierta.js";
 import { validarCobro } from "./validarCobro.js";
+import { dbTicket } from "./leerDb.js";
 
 export function mostrarTicket() {
+  info = dbTicket()
   const $encabezado = `
-<h3 class="ticketNombre">HUELGA BAR</h3>
-<p class="ticketDescr">Demaria 595, Adrogue
-CUIT: 12-34567890-1</p>
+<h3 class="ticketNombre">${info.nombre}</h3>
+<p class="ticketDescr">${info.descr}</p>
+<br>
 `;
   const $container = document.createElement("div");
   $container.className = "mostrarDatos";
