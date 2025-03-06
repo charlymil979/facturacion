@@ -16,11 +16,12 @@ export default function botonLibroDiario() {
 		}else{
 			document.querySelector("#cerrarCaja").disabled=false
 		}
+		manejoResumenDiario()
 		}, 500);
 		
 		actualizarEgresos()
 		cargarTotalesDiario()
-		manejoResumenDiario()
+		document.querySelector(".anularFondo").style.display = "flex"
 		document.querySelector(".libroDiario").style.display = "flex"
 	 }
 	 )

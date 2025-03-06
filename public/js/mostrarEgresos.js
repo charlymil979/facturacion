@@ -3,7 +3,6 @@ export default function mostrarEgresos() {
 	const mostrarEgresos = document.createElement("div")
 	mostrarEgresos.className = "mostrarEgresos"
 	mostrarEgresos.innerHTML = "<h3>Egresos</h3>"
-	const tipoEgreso = ["Proveedores", "Sueldos", "Gastos"]
 	const tabla = document.createElement("table");
 	tabla.className = "egresos"
 	tabla.innerHTML = `

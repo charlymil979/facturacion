@@ -1,9 +1,10 @@
 import botonCerrarCaja from "./BotonCerrarCaja.js";
 import botonCerrarModal from "./botonCerrarModal.js";
-import {  calculoNumerales, guardarCajaInicial} from "./funcionesLibroDiario.js";
+import { guardarCajaInicial} from "./funcionesLibroDiario.js";
 import {mostrarIngresos} from "./ingresos.js";
 import manejoResumenDiario from "./manejoResumenDiario.js";
 import mostrarEgresos from "./mostrarEgresos.js";
+import { mostrarNumerales } from "./mostrarNumerales.js";
 import { verResumenDiario } from "./resumenDiario.js";
 
 export default function modalLibroDiario() {
@@ -18,6 +19,7 @@ export default function modalLibroDiario() {
 	// const $egresos = verEgresosDiario()
 	const $mostrarEgresos = mostrarEgresos()
 	const $resumen = verResumenDiario()
+	const numerales = mostrarNumerales()
   //   INICIO CAJA
 
   const inicioCaja = document.createElement("div");
@@ -66,82 +68,8 @@ fecha = new Date(inicial.Fecha).toString().split(" ");
   }>
   `;
 
-  // const $efvo = document.createElement("h3");
-  // $efvo.textContent = "Efectivo en caja";
-  // const numeral = document.createElement("div");
-  // numeral.className = "numeral"
-  // numeral.addEventListener("keyup",e =>{
-  // 	e.stopPropagation()
-  // 	calculoNumerales()
-  // })
-
-  //   const numerales = `
-  // <table>
-  // <th>Valor</th>
-  // <th>Cantidad</th>
-  // <th>Monto</th>
-  // <tr>
-  // 	<td> $10 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> $20 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> $50 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> $100 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> $200 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> $500 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> $1000 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> $2000 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> $10000 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> $100000 </td>
-  // 	<td contenteditable="true"></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // <tr>
-  // 	<td> <strong>TOTAL</strong> </td>
-  // 	<td ></td>
-  // 	<td><output></output></td>
-  // </tr>
-  // </table>
-  // numeral.innerHTML = numerales
-  //   `;
   inicioCaja.appendChild($titInicial);
   inicioCaja.appendChild(contenedor);
-  // inicioCaja.appendChild($efvo)
-  // inicioCaja.appendChild(numeral)
   const mesasAbiertas=document.createElement("span")
   mesasAbiertas.className="avisoMesas"
   mesasAbiertas.textContent = "Aún hay mesas abiertas"
@@ -154,5 +82,6 @@ fecha = new Date(inicial.Fecha).toString().split(" ");
   $modal.appendChild($resumen);
   $modal.appendChild(cerrarCaja);
   $modal.appendChild(mesasAbiertas);
+  $modal.appendChild(numerales);
   return $modal;
 }

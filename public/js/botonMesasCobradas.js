@@ -8,6 +8,7 @@ export default async function botonMesasCobradas() {
 	boton.addEventListener("click", async() => {
 		const $verMesas = await revisarMesasCerradas()
 		document.querySelector("#dinamicoMesasCerradas").innerHTML = $verMesas.innerHTML;
+		document.querySelector(".anularFondo").style.display = "flex";
 		document.querySelector(".mesasCobradas").style.display="flex"})
 	return boton
 }

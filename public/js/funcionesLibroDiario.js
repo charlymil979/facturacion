@@ -23,23 +23,23 @@ export function guardarCajaInicial() {
 }
 
 export function calculoNumerales() {
-  event.stopPropagation();
-  const $output = document.querySelectorAll("output");
-  $output.forEach((el) => {
-    el.textContent =
-      Number(el.parentNode.previousSibling.textContent) *
-      Number(
-        el.parentNode.previousSibling.previousSibling.textContent.replace(
-          "$",
-          ""
-        )
-      );
-   //  console.log("calc");
-  });
+	event.stopPropagation()
+	const tabla= document.querySelector(".numerales");
+	const $celda = tabla.querySelectorAll("td")
+	const $total=document.querySelector("#totalNum")
+	let suma =0
+	for (let i = 0; i < $celda.length-3; i=i+3) {
+		$celda[i + 2].innerHTML = Number($celda[i].innerHTML.replace("$","")) * Number($celda[i + 1].innerHTML);
+		suma += Number($celda[i + 2].innerHTML);
+	}
+	$total.innerHTML = suma
 }
 
 export async function cargarTotalesDiario() {
-  if (document.querySelector("#agregarEgreso").value != "") {
+  if (
+    document.querySelector("#agregarEgreso").innerHTML != "" ||
+    document.querySelector("#agregarEgreso").innerHTML != undefined
+  ) {
     const totales = await totalDiario();
     const resultado = totales.reduce((acumulador, objeto) => {
       for (const key in objeto) {
@@ -48,24 +48,35 @@ export async function cargarTotalesDiario() {
       acumulador.total = (acumulador.total || 0) + 1;
       return acumulador;
     }, {});
-
-    //  console.log(resultado, resultado.efectivo);
     setTimeout(() => {
       document.querySelector("#diarioMesas").value = resultado.total || 0;
       document.querySelector("#diarioEfvo").value = resultado.efectivo || 0;
       document.querySelector("#diarioTransf").value =
-        resultado.transferencia + resultado.propinaTransf || 0;
+		resultado.transferencia + resultado.propinaTransf || 0;
       document.querySelector("#diarioDeb").value = resultado.debito || 0;
       document.querySelector("#diarioCred").value = resultado.credito || 0;
       document.querySelector("#diarioTotal").value = resultado.monto || 0;
       manejoResumenDiario();
+	}, 5);
+}else{
+    setTimeout(() => {
+      document.querySelector("#diarioMesas").value = 0;
+      document.querySelector("#diarioEfvo").value = 0;
+      document.querySelector("#diarioTransf").value = 0;
+      document.querySelector("#diarioDeb").value = 0;
+      document.querySelector("#diarioCred").value = 0;
+      document.querySelector("#diarioTotal").value = 0;
+      manejoResumenDiario();
     }, 5);
-  }
+}
 }
 
 export async function revisarMesasCerradas() {
     const $tbody = document.createElement("tbody");
-    const fecha = localStorage.getItem("cajaInicial").Fecha
+    let fecha =""
+	 if(localStorage.getItem("cajaInicial")){
+		fecha = localStorage.getItem("cajaInicial").Fecha;
+	 }
 	if(fecha != ""){
     const mesas = await totalDiario();
 

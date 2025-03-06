@@ -10,8 +10,8 @@ export default function manejoResumenDiario() {
 		 
 
   const egresos = JSON.parse(localStorage.getItem("egresosDiario"));
+  const total = { efvo: 0, transf: 0, deb: 0, cred: 0 };
   if (egresos) {
-    const total = { efvo: 0, transf: 0, deb: 0, cred: 0 };
     egresos.forEach((el) => {
       switch (el.formaPago) {
         case "efectivo":
@@ -30,17 +30,18 @@ export default function manejoResumenDiario() {
           total.cred += Number(el.monto);
           break;
 
-        default:
-          break;
-      }
-    });
-    celdas[1].innerText = inicial[1].value;
+			 default:
+				 break;
+				}
+			});
+		}
+    celdas[1].innerText = inicial[1].value || 0;
     celdas[2].innerText = efvo.value;
     celdas[3].innerText = total.efvo;
     celdas[4].innerText =
       Number(celdas[1].innerText) + Number(celdas[2].innerText)-Number(celdas[3].innerText);
 
-    celdas[6].innerText = inicial[2].value;
+    celdas[6].innerText = inicial[2].value ||0;
     celdas[7].innerText =
       Number(celdas[12].innerText) +
       Number(celdas[17].innerText) +
@@ -66,5 +67,4 @@ export default function manejoResumenDiario() {
     celdas[22].innerText = cred.value;
     celdas[23].innerText = total.cred;
     celdas[24].innerText = Number(cred.value) - Number(total.cred);
-  }
 }

@@ -13,6 +13,7 @@ export function botonTicket() {
     	document.querySelector(".mesasAbiertas").style.display= "none"
 		validarCobro()
     	generarTicket()
+		document.querySelector(".anularFondo").style.display = "flex";
     	document.querySelector(".ticket").style.display= "flex"
 	}else{
   		return window.alert("No hay mesa seleccionada")

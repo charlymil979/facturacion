@@ -3,14 +3,18 @@ export async function totalDiario(fecha) {
   try {
     const data = JSON.parse(localStorage.getItem("cajaInicial"));
     const fecha = data.Fecha;
-    const response = await fetch(
-      `${url}/resumenVentas?fechaCobroMayor=${fecha}`
-    );
-    const totales = await response.json();
-    return totales.data;
-  } catch (error) {
-    console.log("Error en base de datos, recargue el buscador", error);
-  }
+  if (fecha && fecha != "") {
+	  const response = await fetch(
+		  `${url}/resumenVentas?fechaCobroMayor=${fecha}`
+		);
+		const totales = await response.json();
+		return totales.data;
+	}else{
+		return []
+	}
+	} catch (error) {
+		console.log("Error en base de datos, recargue el buscador", error);
+	}
 }
 
 export async function llamarIngresos(datos) {

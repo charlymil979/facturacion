@@ -1,4 +1,5 @@
 import { cargarTotalesDiario } from "./funcionesLibroDiario.js";
+import manejoResumenDiario from "./manejoResumenDiario.js";
 
 export function mostrarIngresos(){
     const $ingresos = document.createElement("div")
@@ -18,7 +19,15 @@ export function mostrarIngresos(){
    const botonMontos = document.createElement("button")
 	botonMontos.textContent =  "Ver datos"
 	botonMontos.addEventListener("click", e=>{
+		const data = JSON.parse(localStorage.getItem("cajaInicial"))
+		const fecha = data ? data.Fecha : ""
+		console.log(fecha)
+		if(fecha != ""){
 		cargarTotalesDiario()
+		manejoResumenDiario()}
+		else{
+			return window.alert("Defina hora de apertura")
+		}
 	})
 	$ingresos.appendChild($titulo)
 	$ingresos.appendChild($ul)
