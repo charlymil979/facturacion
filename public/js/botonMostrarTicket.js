@@ -6,8 +6,9 @@ export function botonTicket() {
 	$botonTicket.className = "botonTicket";
 	$botonTicket.innerHTML = "Hacer<br>Ticket";
 	$botonTicket.addEventListener("click", (e) => {
+		let fecha=""
 		const data = JSON.parse(localStorage.getItem("cajaInicial"));
-    const fecha = data ? data.Fecha : "";
+    if(data){fecha=data.Fecha}
 	 if(fecha === ""){return window.alert("Abrir caja, seleccione hora de apertura")}
     if(document.querySelector("#mesaMostrada").innerHTML != "Mesa"){
 		if(!document.querySelector(".art")){
