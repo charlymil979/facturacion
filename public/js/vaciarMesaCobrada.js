@@ -7,4 +7,5 @@ export default function limpiarMesa() {
   localStorage.setItem(`${mesaAbierta}`,"[]");
   mostrarMesa(mesaAbierta)
   document.querySelector(".ticket").style.display="none"
+  document.querySelector(".anularFondo").style.display="none"
   }

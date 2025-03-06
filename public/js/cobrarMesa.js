@@ -26,7 +26,7 @@ export default function cobrarMesa(){
 
   const fechaApertura = JSON.parse(localStorage.getItem("cajaInicial"));
    if (Number($("#propina").value) > 0 && fechaApertura != "") {
-     const egresos = JSON.parse(localStorage.getItem("egresosDiario"));
+     const egresos = JSON.parse(localStorage.getItem("egresosDiario")) || []
      egresos.push({
        fecha: fechaApertura.Fecha,
        tipoEgreso: "Gastos",
