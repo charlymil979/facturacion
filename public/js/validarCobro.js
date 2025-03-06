@@ -4,6 +4,7 @@ import { guardarHistorial } from "./funcionesQueryPost.js";
 export function validarCobro() {
   const $botonCobrar = document.querySelector("#cobrar");
   const $montos = document.querySelectorAll(".parcial");
+  const $transf = document.querySelector("#transf");
   const $propina = document.querySelector("#propina");
   
   const acumulado = Array.from($montos).reduce((acumulador, input) => {
@@ -14,10 +15,11 @@ export function validarCobro() {
     input.placeholder =
     Number(document.querySelector("#pago").value) - acumulado;
   });
+  const transf = isNaN(Number($transf.value)) ? 0 : Number($transf.value)
   const noPropina = isNaN(Number($propina.value)) ? 0 : Number($propina.value);
   if (
     acumulado - noPropina ===
-    Number(document.querySelector("#pago").value) && acumulado !=0
+    Number(document.querySelector("#pago").value) && acumulado !=0 && transf >= noPropina
   ) {
     $botonCobrar.disabled = false;
   } else {
