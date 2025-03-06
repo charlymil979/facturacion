@@ -13,8 +13,7 @@ export function botonTicket() {
 	if(fecha != ""){
     	if(document.querySelector("#mesaMostrada").innerHTML != "Mesa"){
 			if(!document.querySelector(".art")){
-				return window.alert("No hay articulos que cobrar")
-			}
+				return window.alert("No hay articulos que cobrar")}
     		document.querySelector(".mesasAbiertas").style.display= "none"
 			validarCobro()
     		generarTicket()
@@ -25,6 +24,7 @@ export function botonTicket() {
   		}
 	
 		}else{
-		return window.alert("Abrir caja, seleccione hora de apertura")});
+		return window.alert("Abrir caja, seleccione hora de apertura")}
+	});
   return $botonTicket;
 }
