@@ -2,15 +2,15 @@ import { generarTicket } from "./generarTicket.js";
 import { validarCobro } from "./validarCobro.js";
 
 export function botonTicket() {
+	let fecha=""
 	const $botonTicket = document.createElement("button");
 	$botonTicket.className = "botonTicket";
 	$botonTicket.innerHTML = "Hacer<br>Ticket";
 	$botonTicket.addEventListener("click", (e) => {
-		let fecha=""
 		const data = JSON.parse(localStorage.getItem("cajaInicial"));
-    	if(data){fecha=data.Fecha}
-		if(fecha === ""){return window.alert("Abrir caja, seleccione hora de apertura")}
-    	if(document.querySelector("#mesaMostrada").innerHTML != "Mesa"){
+    		if(data){fecha=data.Fecha}
+			if(fecha === ""){return window.alert("Abrir caja, seleccione hora de apertura")}
+    		if(document.querySelector("#mesaMostrada").innerHTML != "Mesa"){
 			if(!document.querySelector(".art")){
 				return window.alert("No hay articulos que cobrar")
 			}
@@ -24,6 +24,6 @@ export function botonTicket() {
   		}
 	});
 	console.log(fecha)
-  return $botonTicket;
+	return $botonTicket;
 }
 
