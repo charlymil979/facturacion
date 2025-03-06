@@ -23,6 +23,7 @@ export function botonTicket() {
   			return window.alert("No hay mesa seleccionada")
   		}
 	});
+	console.log(fecha)
   return $botonTicket;
 }
 
