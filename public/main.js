@@ -19,6 +19,7 @@ import manejoResumenDiario from "./js/manejoResumenDiario.js";
 import { contenedorBotonesDiario } from "./js/contenedorBotonesDiario.js";
 import modalRegistros from "./js/modalRegistro.js";
 import { anularFondo } from "./js/anularFondo.js";
+import { modalPrecios } from "./js/manejarPrecios.js";
 
 // import { botonTicket, validarCobro } from "./js/cerrarCuenta.js";
 
@@ -83,7 +84,10 @@ const app = Vue.createApp({
       document.querySelector(".registros").style.display = "none";
 		document.querySelector(".anularFondo").style.display = "none";
     }
- 
+ if (document.querySelector(".dbPrecios") && e.key === "Escape") {
+   document.querySelector(".dbPrecios").style.display = "none";
+   document.querySelector(".anularFondo").style.display = "none";
+ }
     });
 
 
@@ -99,6 +103,7 @@ const app = Vue.createApp({
 	 const botonesDiario = await contenedorBotonesDiario()
 	 const registros = modalRegistros()
 	 const nullFondo = anularFondo()
+	 const precios = await modalPrecios()
     
     document.getElementById("app").appendChild(distrib);
     document.getElementById("app").appendChild(botonesContainer);
@@ -111,6 +116,7 @@ const app = Vue.createApp({
     document.getElementById("app").appendChild(libroDiario);
     document.getElementById("app").appendChild(mesasCobradas);
     document.getElementById("app").appendChild(registros);
+	 document.getElementById("app").appendChild(precios);
     document.getElementById("app").appendChild(nullFondo);
   },
 });
