@@ -175,6 +175,10 @@ input {
   cursor: pointer;
 }
 
+.containerBotones button:nth-child(3){
+	margin-top: 10vw;
+}
+
 .containerBotones button:hover {
   background-color: rgb(135, 135, 135);
 }
@@ -696,7 +700,7 @@ td button {
 }
 
 .mesasCobradas,
-.registros {
+.registros, .dbPrecios {
 	z-index: 5;
   background-color: var(--modal-bg);
   border: var(--modal-border);
@@ -709,9 +713,15 @@ td button {
   min-height: 95vh;
 }
 
+.dbPrecios{
+	align-items: center;
+}
+
+.dbPrecios p{
+	color: var(--fondoNoBlanco);
+}
+
 .registros {
-  position: absolute;
-  left: 2vw;
   flex-direction: row;
   justify-content: space-between;
   overflow-y: auto;
@@ -722,6 +732,47 @@ td button {
 .mesasCobradas h3 {
   text-align: center;
 }
+
+.actualizarPrecios{
+	border-collapse: separate;
+	width: 25vw;
+	justify-self: center;
+	align-self: center;
+	
+}
+
+.guardarPrecios{
+	width: 15vw;
+	margin: 2vh 0;
+	align-self: center;
+	height: 3rem;
+	  background-color: darkgray;
+  border: outset darkgrey 2px;
+}
+
+.guardarPrecios:hover {
+  background-color: rgb(135, 135, 135);
+  border: inset darkgrey 2px;
+
+}
+
+.actualizarPrecios thead{
+		background-color: var(--fondoNoBlanco);
+	}
+
+	.actualizarPrecios td:nth-child(2){
+		text-align: right;
+	}
+
+	.listaPrecios tr:nth-child(odd){
+		background-color:darkgray ;
+		height: 1.1rem;
+	}
+	
+	.listaPrecios tr:nth-child(even){
+		height: 1.1rem;
+		background-color:var(--fondoNoBlanco) ;
+	}
 
 #containerMesasCobradas {
   background-color: var(--fondoNoBlanco);
