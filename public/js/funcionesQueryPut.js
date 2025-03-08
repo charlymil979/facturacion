@@ -1,4 +1,5 @@
 import datosMesaModif from "./cargarDatosModif.js";
+import { mostrarPrecios } from "./manejarPrecios.js";
 
 const url = 'http://localhost:3000'
 export async function actualizarMesaCobrada(orden) {
@@ -22,4 +23,30 @@ export async function actualizarMesaCobrada(orden) {
     const resultado = await response.json();
    //  console.log(resultado);
   } catch (error) {window.alert("No se actualizaron valores de la mesa",error)}
+}
+
+export async function putPrecios(precios) {
+    try {
+      const respuesta = await fetch(`${url}/datos`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(precios),
+      });
+
+      if (!respuesta.ok) {
+        throw new Error(`Error HTTP: ${respuesta.status}`);
+      }
+
+      const resultado = await respuesta.json();
+		window.alert("Precios actualizados correctamente")
+		mostrarPrecios()
+      return resultado;
+    } catch (error) {
+		window.alert(error, "Ejecute nuevamente facturacion.bat");
+      console.error("Error al reemplazar datos:", error);
+      throw error;
+    }
+
 }

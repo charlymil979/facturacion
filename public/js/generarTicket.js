@@ -1,10 +1,12 @@
 import leerMesaAbierta from "./leerMesaAbierta.js";
 
 export async function generarTicket() {
-  let orden=0
+	let orden=0
   const response = await fetch("http://localhost:3000/ult-orden");
+  console.log(response)
   const data = await response.json();
-  if(data && data.orden) {orden = data.orden;}
+  console.log(data)
+  if(data.length >0) {orden = data.orden;}
 
   const $ul = document.querySelector(".imprimir");
   const num = document.querySelector("#orden");

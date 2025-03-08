@@ -113,7 +113,7 @@ export default function modalRegistros() {
 	 <option value="detalles">Detalles</option>
 	 <option value="resumen">Resumen</option>
 	 </select>`;
-  }, 10);
+  }, 100);
 
   const cerrar = botonCerrarModal();
 
