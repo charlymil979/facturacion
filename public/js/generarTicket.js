@@ -3,7 +3,6 @@ import leerMesaAbierta from "./leerMesaAbierta.js";
 export async function generarTicket() {
 	
   const response = await fetch("http://localhost:3000/ult-orden");
-  console.log(response)
   const data = await response.json();
   const orden = data.orden;
 
