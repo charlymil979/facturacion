@@ -81,13 +81,17 @@ export async function crearInputConLista() {
   }
 function leerItem(){
 
-  const value = input.value.split(" - ")[0];
-  const dato = listaOriginal.find((item) => item[0].includes(value));
+//   const value = input.value.split(" - ")[0];
+//   const dato = listaOriginal.find((item) => item[0]===(value));
+
+const dato = input.value
   return dato
+
 }
 
 function agregarItem() {
     let dato = leerItem()
+	 const datoIng = dato.split(" - ");
     const horaActual = new Date();
     const hora = horaActual.getHours();
     const minutos =
@@ -97,7 +101,7 @@ function agregarItem() {
     const ahora = `${hora}:${minutos}`;
     let nuevoItem = document.createElement("li");
     nuevoItem.className="leerTicket"
-    nuevoItem.innerHTML = `<textarea class="art col1">${dato[0]}</textarea> <textarea class="monto col2">${dato[1]}</textarea><span class="delete">x</span><div class="ahora">${ahora}</div>`
+    nuevoItem.innerHTML = `<textarea class="art col1">${datoIng[0]}</textarea> <textarea class="monto col2">${datoIng[1]}</textarea><span class="delete">x</span><div class="ahora">${ahora}</div>`
 
     const lineas = document.querySelectorAll("#datosDinamicos")
     const ult = lineas[lineas.length - 1]
