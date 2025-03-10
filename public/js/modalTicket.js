@@ -14,13 +14,21 @@ export async function modalTicket() {
 `;
     const $container = document.createElement("div");
     $container.className = "mostrarDatos";
+	 const $contenedorBotones = document.createElement("div")
+	 $contenedorBotones.id="botonesTicket"
     const $botonCobrarMesa = document.createElement("button");
     $botonCobrarMesa.innerText = "Cobrar Mesa";
     $botonCobrarMesa.id = "cobrar";
     $botonCobrarMesa.disabled = true;
-   //  $botonCobrarMesa.addEventListener("click", (e) => guardarHistorial());
-    $botonCobrarMesa.addEventListener("click", (e) =>{ imprimirMostrarDatos();
+	 const $botonImprimir = document.createElement("button");
+	$botonImprimir.id = "imprimir"
+	 $botonImprimir.textContent = "Imprimir ticket"
+	 $botonImprimir.addEventListener("click", e=>imprimirMostrarDatos())
+
+    $botonCobrarMesa.addEventListener("click", (e) =>{ 
 	guardarHistorial()});
+	$contenedorBotones.appendChild($botonCobrarMesa)
+	$contenedorBotones.appendChild($botonImprimir)
     const $ticketFinal = document.createElement("div");
     $ticketFinal.className = "ticket";
     $ticketFinal.style.display = "none";
@@ -42,7 +50,7 @@ export async function modalTicket() {
     const $formasPago = document.createElement("div");
     $formasPago.className = "formasPago";
     $formasPago.innerHTML = template;
-    $formasPago.appendChild($botonCobrarMesa);
+    $formasPago.appendChild($contenedorBotones);
     const botonCerrar = botonCerrarModal();
     $container.appendChild($ul);
     $ticketFinal.appendChild($container);
