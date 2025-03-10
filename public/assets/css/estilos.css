@@ -555,7 +555,7 @@ td button {
   width: 25vw;
   flex-direction: column;
   background-color: var(--modal-bg);
-  position: fixed;
+  position: absolute;
   flex-wrap: nowrap;
   align-items: center;
   top: 25vh;
