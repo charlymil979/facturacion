@@ -1051,3 +1051,9 @@ td:nth-child(5) {
 	opacity:0.9;
 	display: none;
 }
+
+#botonesTicket{
+	width: 90%;
+	display: flex;
+	justify-content: space-between;
+}
