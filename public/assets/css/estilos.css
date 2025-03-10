@@ -1055,5 +1055,5 @@ td:nth-child(5) {
 #botonesTicket{
 	width: 90%;
 	display: flex;
-	justify-content: space-between;
+	justify-content: space-evenly;
 }
