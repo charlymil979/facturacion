@@ -687,6 +687,7 @@ td button {
   text-align: right;
   min-width: 1vw;
   width: 5rem;
+  min-width: 90px;
   padding-right: 0.5vw;
 }
 
