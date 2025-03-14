@@ -78,7 +78,7 @@ h3 {
 }
 
 #app {
-  width: 100vw;
+  min-width: 100vw;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -810,16 +810,17 @@ td button {
 }
 
 .mostrarEgresos {
-  width: 55%;
-  margin-left: 5vw;
+  width: 45%;
+  margin-left: 1vw;
+}
+
+.mostrarEgresos * {
+	font-size: 1rem;
 }
 
 .mostrarEgresos h3 {
   text-align: center;
-}
-
-.mostrarEgresos * {
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .egresoEdit td {
@@ -868,6 +869,7 @@ td:nth-child(5) {
 }
 
 .resumenDiario {
+	margin-left: 5vw;
   width: 50%;
 }
 
