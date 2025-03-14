@@ -5,7 +5,6 @@ const url = 'http://localhost:3000'
 export async function actualizarMesaCobrada(orden) {
 	try {
     const datos = datosMesaModif(orden);
-	//  console.log(datos)
     if (!datos) {
       return console.log("No se cargaron datos para actualizar mesa");
     }
@@ -21,7 +20,7 @@ export async function actualizarMesaCobrada(orden) {
     }
 
     const resultado = await response.json();
-   //  console.log(resultado);
+   window.alert(`Datos de orden ${orden} actualizados correctamente`)
   } catch (error) {window.alert("No se actualizaron valores de la mesa",error)}
 }
 

@@ -31,7 +31,7 @@ export async function crearInputConLista() {
         .filter((item) => {
           return item[0].toLowerCase().includes(valor);
         })
-        .slice(0, 10); // Limitar a 10 elementos
+        .slice(0, 12); // Limitar a 10 elementos
 
       // Mostrar la lista filtrada
       listaDesplegable.innerHTML = listaFiltrada
@@ -46,17 +46,21 @@ export async function crearInputConLista() {
 
   function manejo(e) {
     switch (e.key) {
+      case "ArrowDown":
+			document.querySelectorAll(".finder")[0].focus()
+			break;
       case "Enter":
         {
-          if(document.querySelector(".precios").value!=""){
-          agregarItem();
-          input.value = "";
-          input.focus();
-          actualizarMesaAbierta()
-          let mesa = document.querySelector("#mesaMostrada").innerHTML.replace(" ", "-")
-          mostrarMesa(mesa)
-        }
-      
+          if (document.querySelector(".precios").value != "") {
+            agregarItem();
+            input.value = "";
+            input.focus();
+            actualizarMesaAbierta();
+            let mesa = document
+              .querySelector("#mesaMostrada")
+              .innerHTML.replace(" ", "-");
+            mostrarMesa(mesa);
+          }
         }
         break;
       case "Escape":
@@ -128,10 +132,20 @@ function agregarItem() {
     
           switch (e.key) {
             case "ArrowUp":
-              document.activeElement.previousSibling.focus();
+					if (document.activeElement.previousSibling){
+            document.activeElement.previousSibling.focus();}
+				else{
+					const lista = document.querySelectorAll(".finder")
+					const ult = lista[lista.length-1]
+					ult.focus()
+				}
               break;
             case "ArrowDown":
-              document.activeElement.nextSibling.focus();
+					if (document.activeElement.nextSibling){
+            document.activeElement.nextSibling.focus();
+					}else{
+						document.querySelectorAll(".finder")[0].focus()
+					}
               
               break;
             case "Enter":

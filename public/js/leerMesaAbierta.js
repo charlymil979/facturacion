@@ -1,7 +1,7 @@
 
 export default function leerMesaAbierta(){
-
-  const datos=[]
+	const cubiertos = document.querySelector("#cubiertos").value
+  const datos=[["cubiertos",cubiertos]]
   const art = document.querySelectorAll(".col1")
   const precio = document.querySelectorAll(".col2")
   const hora = document.querySelectorAll(".ahora");

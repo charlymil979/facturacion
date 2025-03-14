@@ -13,16 +13,21 @@ export default function mostrarMesa(mesa) {
   let $lineaPrecios = new String();
   let total = 0;
   if (artics) {
-    artics.forEach((el) => {
-      total += Number(el[1]);
-      // console.log(el[0],el[1])
-      $lineaPrecios += `<li class="leerTicket">
-              <textarea class="art col1">${el[0]}</textarea> <textarea class="monto col2">${el[1]}</textarea>
-              <span class="delete">x</span>
-              <div class="ahora">${el[2]}</div>
-              </li>
-              `;
+	  artics.forEach((el, n) => {
+		  if(n>0){
+			  total += Number(el[1]);
+			  // console.log(el[0],el[1])
+			  $lineaPrecios += `<li class="leerTicket">
+			  <textarea class="art col1">${el[0]}</textarea> <textarea class="monto col2">${el[1]}</textarea>
+			  <span class="delete">x</span>
+			  <div class="ahora">${el[2]}</div>
+			  </li>
+			  `;}else{
+			  document.querySelector("#cubiertos").value = el[1]
+			  }
     });
+  }else{
+	document.querySelector("#cubiertos").value = ""
   }
 
   $datosDinamicos.innerHTML = $lineaPrecios;

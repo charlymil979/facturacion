@@ -8,6 +8,7 @@ $mostrarDatos.innerHTML = `
 <h4 id="mesaMostrada">Mesa</h4>
 <div>
 <ul id="detalles" class="titulos">
+<li>Cant cubiertos<textarea name="cubiertos" id="cubiertos" class="monto" placeholder="Ingrese cubiertos"></textarea></li>
   <li class="negrita">
     <textarea class="col11" readonly>Detalle</textarea> 
     <textarea class="centr col21" readonly>Precio</textarea>

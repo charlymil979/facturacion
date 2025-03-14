@@ -41,6 +41,7 @@ export async function mostrarRegistro(){
 	debito: 0,
 	credito: 0,
 	propinaTransf:0,
+	cubiertos:0
  };
 	if(respIngresos.length >0){
 		respIngresos.forEach(el => {
@@ -50,6 +51,7 @@ export async function mostrarRegistro(){
 			totales.debito +=el.debito
 			totales.credito +=el.credito
 			totales.propinaTransf += el.propinaTransf;
+			totales.cubiertos += el.cubiertos;
 			let fecha = new Date(el.fechaCobro)
 			  const dia = fecha.getDate().toString().padStart(2, "0");
         const mes = (fecha.getMonth() + 1).toString().padStart(2, "0"); 
@@ -67,6 +69,7 @@ export async function mostrarRegistro(){
 		<td>${el.debito}</td>
 		<td>${el.credito}</td>
 		<td>${el.propinaTransf}</td>
+		<td>${el.cubiertos}</td>
 		<td>${el.orden}</td>
 		</tr>
 		`;
@@ -83,6 +86,7 @@ export async function mostrarRegistro(){
 		<td>${totales.debito}</td>
 		<td>${totales.credito}</td>
 		<td>${totales.propinaTransf}</td>
+		<td>${totales.cubiertos}</td>
 		<td></td>
 		</tr>
 		`;

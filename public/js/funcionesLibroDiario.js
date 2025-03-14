@@ -50,6 +50,7 @@ export async function cargarTotalesDiario() {
     }, {});
     setTimeout(() => {
       document.querySelector("#diarioMesas").value = resultado.total || 0;
+      document.querySelector("#diarioCubiertos").value = resultado.cubiertos || 0;
       document.querySelector("#diarioEfvo").value = resultado.efectivo || 0;
       document.querySelector("#diarioTransf").value =
 		resultado.transferencia + resultado.propinaTransf || 0;
@@ -96,12 +97,21 @@ export async function revisarMesasCerradas() {
 			<td class="cobradaData">${$fecha.getHours()}:${minutos}</td>
 			<td class="cobradaData">${mesa.mesa.replace("-", " ")}</td>
 			<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.efectivo}</td>
-			<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.transferencia}</td>
+			<td contenteditable class="orden${mesa.orden} cobradaData">${
+        mesa.transferencia
+      }</td>
 			<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.debito}</td>
 			<td contenteditable class="orden${mesa.orden} cobradaData">${mesa.credito}</td>
-			<td contenteditable class="orden${mesa.orden} cobradaData prop">${mesa.propinaTransf}</td>
-			<td style="font-weight:bold" class="total${mesa.orden} cobradaData">${mesa.monto}</td>
+			<td contenteditable class="orden${mesa.orden} cobradaData prop">${
+        mesa.propinaTransf
+      }</td>
+			<td style="font-weight:bold" class="total${mesa.orden} cobradaData">${
+        mesa.monto
+      }</td>
 			<td class="cobradaData">${mesa.orden}</td>
+			<td contenteditable class="orden${mesa.orden} cubiertos cobradaData">${
+        mesa.cubiertos
+      }</td>
 			`;
     	$tr.insertAdjacentElement("beforeend", td);
     	$tbody.appendChild($tr);

@@ -10,6 +10,7 @@ export function mostrarIngresos(){
     $ul.id="detalleIngresos"
     $ul.innerHTML = `
     <li><label>Total mesas:</label><textarea readonly class="itemIngreso" id="diarioMesas"></textarea></li>
+    <li><label>Total cubiertos:</label><textarea readonly class="itemIngreso" id="diarioCubiertos"></textarea></li>
     <li><label>Efectivo:</label><textarea readonly class="itemIngreso" id="diarioEfvo"></textarea></li>
 	 <li><label>Transf:</label><textarea readonly class="itemIngreso" id="diarioTransf"></textarea></li>
 	 <li><label>Débito:</label><textarea readonly class="itemIngreso" id="diarioDeb"></textarea></li>

@@ -6,7 +6,7 @@ export async function modalPrecios() {
   container.className = "dbPrecios";
   container.innerHTML = `
 	<h3>Lista de Precios</h3>
-	<p>Para borrar un artúculo, dejar la línea vacía</p>
+	<p>Para borrar un artículo, dejar la línea vacía</p>
 	`;
 //   const cuerpo = await mostrarPrecios();
   const tabla = document.createElement("table")

@@ -7,7 +7,8 @@ export default function datosMesaModif(orden) {
     debito: datos[2].innerHTML,
     credito: datos[3].innerHTML,
     propinaTransf: datos[4].innerHTML,
-    orden: orden,
+	 cubiertos: datos[5].innerHTML,
+    orden: orden
   };
 	return datosModif
 }

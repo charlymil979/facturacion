@@ -27,6 +27,7 @@ export function verMesasCobradas(){
 <th>Propina</th>
 <th style="font-weight:bold">Total</th>
 <th>Orden N</th>
+<th>Cubiertos</th>
 </tr>
 </thead>
 <tbody id="dinamicoMesasCerradas"></tbody>

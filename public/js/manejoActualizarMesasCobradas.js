@@ -6,7 +6,7 @@ export default function habilitarBotonActualizarMesaCobrada() {
   const total = Number(document.querySelector(`.total${actual}`).innerText);
   let suma = 0;
   datos.forEach((el) => {
-    if (!isNaN(el.innerHTML)) {
+    if (!isNaN(el.innerHTML)&& !(el.classList.contains("cubiertos"))) {
       if (el.classList.contains("prop")) {
         suma -= Number(el.innerHTML);
       } else {

@@ -1,8 +1,8 @@
 import leerMesaAbierta from "./leerMesaAbierta.js";
 
 export async function generarTicket() {
-	
   const response = await fetch("http://localhost:3000/ult-orden");
+//   console.log(response);
   const data = await response.json();
   const orden = data.orden;
 
@@ -18,11 +18,14 @@ export async function generarTicket() {
     </li>`;
 
   datos.forEach((el, n) => {
-    dato += `
+	if(n>0){
+		dato += `
       <li class="leerTicket final">
       <textarea readonly class="impr col-1">${el[0]}</textarea>
       <textarea readonly class="impr col-2">$ ${el[1]}</textarea></li>
       `;
+	}
+   
   });
   dato += `
     <li class="leerTicket final" id="aCobrar">
@@ -39,5 +42,4 @@ export async function generarTicket() {
   });
   document.querySelector("#pago").value =
     document.querySelector(" #total").value;
-
 }

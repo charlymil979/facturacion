@@ -8,4 +8,5 @@ export default function limpiarMesa() {
   mostrarMesa(mesaAbierta)
   document.querySelector(".ticket").style.display="none"
   document.querySelector(".anularFondo").style.display="none"
+  document.querySelector("#cubiertos").value=""
   }

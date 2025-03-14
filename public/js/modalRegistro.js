@@ -40,7 +40,8 @@ export default function modalRegistros() {
   			<th>Transf</th>
   			<th>Débito</th>
   			<th>Créd</th>
-  			<th>Propina</th>
+  			<th>Prop.</th>
+  			<th>Cubiertos</th>
   			<th>N orden</th>
   		</thead>
   	<tbody id="mostrarIngresos"></tbody>

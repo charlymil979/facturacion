@@ -9,12 +9,14 @@ export default function cobrarMesa(){
 
   const datosHistorial ={}
   venta.forEach((item,n) => {
-    datosHistorial[n]={"fechaCobro":fecha,"articulos":item[0],"precio":item[1],"horaPedido":item[2]}
+	if(n>0){
+    datosHistorial[n]={"fechaCobro":fecha,"articulos":item[0],"precio":item[1],"horaPedido":item[2]}}
     
   });
  
   const datosResumen = {
     fechaCobro: fecha,
+	 cubiertos:document.querySelector("#cubiertos").value,
     mesa: $("#mesaMostrada").innerText.replace(" ", "-"),
     monto: Number($("#total").value) || 0,
     efectivo: Number($("#efvo").value) || 0,
@@ -36,6 +38,6 @@ export default function cobrarMesa(){
      });
 	  localStorage.setItem("egresosDiario",JSON.stringify(egresos));
    }
-
+console.log(datosResumen);
 return {datosHistorial, datosResumen}
 }
