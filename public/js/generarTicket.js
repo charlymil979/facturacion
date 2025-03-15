@@ -8,7 +8,9 @@ export async function generarTicket() {
 
   const $ul = document.querySelector(".imprimir");
   const num = document.querySelector("#orden");
-  num.textContent = `Orden N°: ${orden + 1}`;
+  num.innerHTML = `<p>Orden N°: ${orden + 1}</p><p>Mesa: ${
+    document.querySelector("#mesaMostrada").innerText
+  }</p>`;
 
   const datos = leerMesaAbierta();
 
