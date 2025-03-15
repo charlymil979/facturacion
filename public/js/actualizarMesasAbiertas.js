@@ -14,7 +14,7 @@ export default async function actualizarModalMesas() {
     const seccion = document.createElement("div")
     mesas[mesa].forEach(num =>{
       const artic = JSON.parse(localStorage.getItem(`${mesa}-${num}`))
-      if(artic && artic.length > 0){
+      if(artic && artic.length > 1){
         const boton = document.createElement("button")
         boton.className=mesa
         boton.classList.add("abierta")

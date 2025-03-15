@@ -25,13 +25,15 @@ export function mudarMesa(mesa) {
 			}, 2);
 	 }
 	 if (adjuntar){
-		mesaActual.forEach(el=> {
+		 mesaNueva[0][1] =Number(mesaNueva[0][1])+Number(mesaActual[0][1])
+		 mesaActual.forEach((el,n)=> {
+	if(n>0){
 			mesaNueva.push(el)
 			localStorage.setItem(nombreMesaNueva, JSON.stringify(mesaNueva)) 
 			localStorage.setItem(`${mesa.replace(" ", "-")}`, "[]");
 			setTimeout(() => {
         mostrarMesa(nombreMesaNueva);
-      }, 2);
+      }, 2);}
 		});
 	 }
 		
