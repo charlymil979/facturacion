@@ -29,14 +29,7 @@ export function calculoNumerales() {
 	const $total=document.querySelector("#totalNum")
 	let suma =0
 	for (let i = 0; i < $celda.length-3; i=i+3) {
-		console.log($celda[i + 1].innerHTML);
-		if (isNaN($celda[i + 1].innerHTML)) {
-      $celda[i + 2].innerHTML = 0;
-    } else {
-      $celda[i + 2].innerHTML =
-        Number($celda[i].innerHTML.replace("$", "")) *
-        Number($celda[i + 1].innerHTML);
-    }		
+		$celda[i + 2].innerHTML = Number($celda[i].innerHTML.replace("$","")) * Number($celda[i + 1].innerHTML);
 		suma += Number($celda[i + 2].innerHTML);
 	}
 	$total.innerHTML = suma
@@ -60,10 +53,11 @@ export async function cargarTotalesDiario() {
       document.querySelector("#diarioCubiertos").value = resultado.cubiertos || 0;
       document.querySelector("#diarioEfvo").value = resultado.efectivo || 0;
       document.querySelector("#diarioTransf").value =
-		resultado.transferencia + resultado.propinaTransf || 0;
+		resultado.transferencia || 0;
       document.querySelector("#diarioDeb").value = resultado.debito || 0;
       document.querySelector("#diarioCred").value = resultado.credito || 0;
-      document.querySelector("#diarioTotal").value = resultado.monto || 0;
+      document.querySelector("#diarioTotal").value =
+        resultado.monto + resultado.propinaTransf || 0;
       manejoResumenDiario();
 	}, 5);
 }else{
