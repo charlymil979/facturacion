@@ -43,14 +43,14 @@ export async function cargarTotalesDiario() {
     const totales = await totalDiario();
     const resultado = totales.reduce((acumulador, objeto) => {
       for (const key in objeto) {
-        acumulador[key] = (acumulador[key] || 0) + objeto[key];
+        acumulador[key] = (Number(acumulador[key]) || 0) + Number(objeto[key]);
       }
       acumulador.total = (acumulador.total || 0) + 1;
       return acumulador;
     }, {});
     setTimeout(() => {
       document.querySelector("#diarioMesas").value = resultado.total || 0;
-      document.querySelector("#diarioCubiertos").value = resultado.cubiertos || 0;
+      document.querySelector("#diarioCubiertos").value = Number(resultado.cubiertos) || 0;
       document.querySelector("#diarioEfvo").value = resultado.efectivo || 0;
       document.querySelector("#diarioTransf").value =
 		resultado.transferencia || 0;
