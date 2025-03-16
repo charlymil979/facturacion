@@ -26,7 +26,7 @@ export function verResumenDiario() {
 		<td id="intCta"></td>
 		<td id=""></td>
 		<td id=""></td>
-		<td id=""></td>
+		<td id="totCta"></td>
 		</tr>
 		<tr>
 		<td id="">Transferencia:</td>
