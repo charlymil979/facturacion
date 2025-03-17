@@ -26,6 +26,7 @@ export async function modalTicket() {
 	 $botonImprimir.addEventListener("click", e=>imprimirMostrarDatos())
 
     $botonCobrarMesa.addEventListener("click", (e) =>{ 
+	$botonCobrarMesa.disabled = true
 	guardarHistorial()});
 	$contenedorBotones.appendChild($botonCobrarMesa)
 	$contenedorBotones.appendChild($botonImprimir)
