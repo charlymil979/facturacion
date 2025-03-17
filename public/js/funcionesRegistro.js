@@ -45,13 +45,13 @@ export async function mostrarRegistro(){
  };
 	if(respIngresos.length >0){
 		respIngresos.forEach(el => {
-			totales.monto +=el.monto
-			totales.efectivo +=el.efectivo
-			totales.transferencia +=el.transferencia
-			totales.debito +=el.debito
-			totales.credito +=el.credito
-			totales.propinaTransf += el.propinaTransf;
-			totales.cubiertos += el.cubiertos;
+			totales.monto +=Number(el.monto)
+			totales.efectivo +=Number(el.efectivo)
+			totales.transferencia +=Number(el.transferencia)
+			totales.debito +=Number(el.debito)
+			totales.credito +=Number(el.credito)
+			totales.propinaTransf += Number(el.propinaTransf);
+			totales.cubiertos += Number(el.cubiertos);
 			let fecha = new Date(el.fechaCobro)
 			  const dia = fecha.getDate().toString().padStart(2, "0");
         const mes = (fecha.getMonth() + 1).toString().padStart(2, "0"); 
