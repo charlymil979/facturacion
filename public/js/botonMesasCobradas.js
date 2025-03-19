@@ -4,7 +4,7 @@ import {revisarMesasCerradas} from "./funcionesLibroDiario.js"
 export default async function botonMesasCobradas() {
 	
 	const boton = document.createElement("button")
-	boton.textContent = "Ves mesas cobradas"
+	boton.textContent = "Ver mesas cobradas"
 	boton.addEventListener("click", async() => {
 		const inicial = JSON.parse(localStorage.getItem("cajaInicial"));
 		const fecha = inicial.Fecha
