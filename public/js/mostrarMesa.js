@@ -12,7 +12,7 @@ export default function mostrarMesa(mesa) {
   // creo los tr para mostrar los articulos
   let $lineaPrecios = new String();
   let total = 0;
-  if (artics) {
+  if (artics && artics.length>0) {
 	  artics.forEach((el, n) => {
 		  if(n>0){
 			  total += Number(el[1]);
