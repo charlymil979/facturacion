@@ -1060,3 +1060,24 @@ td:nth-child(5) {
 	display: flex;
 	justify-content: space-evenly;
 }
+
+#informacion{
+	display: none;
+	flex-direction: column;
+	z-index: 5;
+	width: 60vw;
+	padding: 1vw;
+	position: absolute;
+	left: 20vw;
+	top: 2vh;
+	background-color: var(--fondoNoBlanco);
+	color: var(--modal-bg);
+}
+
+#informacion h3{
+	color: var(--modal-bg);
+}
+#informacion .circulo li{
+	border-style: none;
+	list-style-type: disc;
+}

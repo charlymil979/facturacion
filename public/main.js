@@ -8,7 +8,7 @@ import actualizarMesaAbierta from "./js/actualizarMesa.js";
 import mostrarMesa from "./js/mostrarMesa.js";
 import { botonTicket } from "./js/botonMostrarTicket.js";
 import { modalTicket } from "./js/modalTicket.js";
-import mostrarMesasAbiertas from "./js/mostrarMesasAbiertas.js"
+import mostrarMesasAbiertas from "./js/mostrarMesasAbiertas.js";
 import modalLibroDiario from "./js/modalLibroDiario.js";
 import { verMesasCobradas } from "./js/modalMesasCobradas.js";
 import { actualizarMesaCobrada } from "./js/funcionesQueryPut.js";
@@ -20,6 +20,7 @@ import { contenedorBotonesDiario } from "./js/contenedorBotonesDiario.js";
 import modalRegistros from "./js/modalRegistro.js";
 import { anularFondo } from "./js/anularFondo.js";
 import { modalPrecios } from "./js/manejarPrecios.js";
+import { info } from "./js/info.js";
 
 // import { botonTicket, validarCobro } from "./js/cerrarCuenta.js";
 
@@ -31,7 +32,6 @@ const app = Vue.createApp({
     };
   },
   async mounted() {
-
     document.addEventListener("click", (e) => {
       if (e.target.className === "delete") {
         quitarArticulo(e);
@@ -41,55 +41,39 @@ const app = Vue.createApp({
           .innerHTML.replace(" ", "-");
         mostrarMesa(mesa);
       }
-		if(e.target.className ==="botonMesaCobrada"){
-			actualizarMesaCobrada(Number(e.target.id.replace("b","")));
-		}
-		if (e.target.className === "remove") {
-        quitarArticulo(e);
-			guardarEgresos();
-      actualizarEgresos();
-      manejoResumenDiario();
-		}
-    });
-
-
-    document.addEventListener("keyup",e => {
-
-		if ((document.activeElement.id === "agregarEgreso") && e.key === "Enter") {
-      agregarEgreso();
-		guardarEgresos();
-		actualizarEgresos();
-		manejoResumenDiario()
-    }
-      if (
-        document.querySelector(".ticket").style.display === "flex" &&
-        e.key === "Escape"
-      ) {
-			document.querySelector(".anularFondo").style.display = "none";
-        return (document.querySelector(".ticket").style.display = "none");
+      if (e.target.className === "botonMesaCobrada") {
+        actualizarMesaCobrada(Number(e.target.id.replace("b", "")));
       }
-     if (document.querySelector(".mesasAbiertas")&&(e.key === "Escape")) {
-      document.querySelector(".mesasAbiertas").style.display = "none";
-		document.querySelector(".anularFondo").style.display = "none";
-    }
-     if (document.querySelector(".mesasCobradas")&&(e.key === "Escape")) {
-      document.querySelector(".mesasCobradas").style.display = "none";
-		document.querySelector(".anularFondo").style.display = "none";
-    }
-     if (document.querySelector(".libroDiario")&&(e.key === "Escape")) {
-      document.querySelector(".libroDiario").style.display = "none";
-		document.querySelector(".anularFondo").style.display = "none";
-    }
-     if (document.querySelector(".registros")&&(e.key === "Escape")) {
-      document.querySelector(".registros").style.display = "none";
-		document.querySelector(".anularFondo").style.display = "none";
-    }
- if (document.querySelector(".dbPrecios") && e.key === "Escape") {
-   document.querySelector(".dbPrecios").style.display = "none";
-   document.querySelector(".anularFondo").style.display = "none";
- }
+      if (e.target.className === "remove") {
+        quitarArticulo(e);
+        guardarEgresos();
+        actualizarEgresos();
+        manejoResumenDiario();
+      }
     });
 
+    document.addEventListener("keyup", (e) => {
+      if (document.activeElement.id === "cubiertos") {
+        actualizarMesaAbierta();
+      }
+      if (document.activeElement.id === "agregarEgreso" && e.key === "Enter") {
+        agregarEgreso();
+        guardarEgresos();
+        actualizarEgresos();
+        manejoResumenDiario();
+      }
+      if (e.key === "Escape") {
+        document.querySelector(".anularFondo").style.display = "none";
+        document.querySelector(".ticket").style.display = "none";
+
+        document.querySelector(".mesasAbiertas").style.display = "none";
+        document.querySelector(".mesasCobradas").style.display = "none";
+        document.querySelector(".libroDiario").style.display = "none";
+        document.querySelector(".registros").style.display = "none";
+        document.querySelector(".dbPrecios").style.display = "none";
+        document.querySelector("#informacion").style.display = "none";
+      }
+    });
 
     const distrib = await mostrarDistribucion();
     const detalles = detalle();
@@ -98,13 +82,14 @@ const app = Vue.createApp({
     const boton = botonTicket();
     const ticket = await modalTicket();
     const mesasAbiertas = await mostrarMesasAbiertas();
-	 const libroDiario = modalLibroDiario()
-	 const mesasCobradas = verMesasCobradas()
-	 const botonesDiario = await contenedorBotonesDiario()
-	 const registros = modalRegistros()
-	 const nullFondo = anularFondo()
-	 const precios = await modalPrecios()
-    
+    const libroDiario = modalLibroDiario();
+    const mesasCobradas = verMesasCobradas();
+    const botonesDiario = await contenedorBotonesDiario();
+    const registros = modalRegistros();
+    const nullFondo = anularFondo();
+    const precios = await modalPrecios();
+    const informacion = info();
+
     document.getElementById("app").appendChild(distrib);
     document.getElementById("app").appendChild(botonesContainer);
     document.getElementById("app").appendChild(buscarArticulos);
@@ -116,7 +101,8 @@ const app = Vue.createApp({
     document.getElementById("app").appendChild(libroDiario);
     document.getElementById("app").appendChild(mesasCobradas);
     document.getElementById("app").appendChild(registros);
-	 document.getElementById("app").appendChild(precios);
+    document.getElementById("app").appendChild(precios);
+    document.getElementById("app").appendChild(informacion);
     document.getElementById("app").appendChild(nullFondo);
   },
 });
