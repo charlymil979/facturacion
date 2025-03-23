@@ -43,6 +43,7 @@ informacion.innerHTML = `
 <ul class ="circulo"><li>&#149 Abre una ventana con todos los artículos facturables, permite cambiar nombres y precios, agregar o quitar artículos.</li></ul>
 <ul class ="circulo">
 <li>&#149 El botón &quot;Actualizar Precios&quot; guarda los cambios realizados</li>
+<li>&#149 Actualizar el buscador (presionar F5) para cargar la lista actualizada</li>
 </ul>
 <h4>Libro Diario</h4>
 <ul class ="circulo">
