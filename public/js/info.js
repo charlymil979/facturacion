@@ -40,8 +40,8 @@ informacion.innerHTML = `
 <h4>Ver Mesas Abiertas</h4>
 <ul class ="circulo"><li>&#149 Abre una ventana que muestra todas las mesas que tienen pedidos, los botones mostrados permiten mostrar cada mesa abierta</li></ul>
 <h4>Actualizar Precios</h4>
-<ul class ="circulo"><li>&#149 Abre una ventana con todos los artículos facturables, permite cambiar nombres y precios, agregar o quitar artículos.</li></ul>
 <ul class ="circulo">
+<li>&#149 Abre una ventana con todos los artículos facturables, permite cambiar nombres y precios, agregar o quitar artículos.</li>
 <li>&#149 El botón &quot;Actualizar Precios&quot; guarda los cambios realizados</li>
 <li>&#149 Actualizar el buscador (presionar F5) para cargar la lista actualizada</li>
 </ul>
