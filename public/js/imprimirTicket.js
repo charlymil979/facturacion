@@ -31,10 +31,6 @@ export function imprimirMostrarDatos() {
   ventanaImpresion.document.close();
   ventanaImpresion.focus();
   
-  setTimeout(() => {
-    ventanaImpresion.print();
-
-  }, 500); 
-};
-  /*ventanaImpresion.close();*/
+  /*ventanaImpresion.print()
+  ventanaImpresion.close();*/
 }
